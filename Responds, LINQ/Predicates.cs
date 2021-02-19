@@ -29,7 +29,7 @@ namespace Responds__LINQ
         }
         public static bool IsPhoneHasTwoOrMoreSevenAndNamLengthMoreThan18(Debtor debtor)
         {
-            return /*IsNameLengthMoreThan18(debtor.FullName) && */IsPhoneNumberHasTwoAmountOfSeven(debtor.Phone);
+            return IsNameLengthMoreThan18(debtor.FullName) && IsPhoneNumberHasTwoAmountOfSeven(debtor.Phone);
         }
 
         public static bool IsNameAndSurnameHasAtLeastThreeSameCharacters(Debtor debtor)
@@ -75,7 +75,7 @@ namespace Responds__LINQ
         {
             return
                 (debtor.BirthDay.Month < DateTime.Now.Month) ?
-                Math.Abs(12 + (DateTime.Now.Month - debtor.BirthDay.Month)) * 500 >= debtor.Debt
+                Math.Abs(12 - DateTime.Now.Month + debtor.BirthDay.Month + 1) * 500 >= debtor.Debt
                 : Math.Abs(debtor.BirthDay.Month - DateTime.Now.Month + 1) * 500 >= debtor.Debt;
         }
 
